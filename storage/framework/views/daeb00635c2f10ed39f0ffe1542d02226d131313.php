@@ -1,5 +1,4 @@
-@extends('master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -26,14 +25,15 @@
                         </thead>
                         <tbody>
                         <?php $Stt=1; ?>
-                        @foreach($kq as $item)
+                        <?php $__currentLoopData = $kq; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr class="odd gradeX" align="center">
-                                <td>{!! $Stt++ !!}</td>
-                                <td>{!! $item['TieuDe'] !!}
+                                <td><?php echo $Stt++; ?></td>
+                                <td><?php echo $item['TieuDe']; ?>
+
                                 </br>
-                                    <img src="{{url('public/images')}}/{{$item['Hinh']}}" height="100px">
+                                    <img src="<?php echo e(url('public/images')); ?>/<?php echo e($item['Hinh']); ?>" height="100px">
                                 </td>
-                                <td>{!! $item['TomTat'] !!}</td>
+                                <td><?php echo $item['TomTat']; ?></td>
                                 <td><?php if($item['NoiBat'] == 0){
                                     echo "khong";
                                 }else{
@@ -44,10 +44,10 @@
                                     
                                     
                                 </td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return xacnhanxoa('Ban co muon xoa');" href="{!! URL::route('newdelete',$item['id'] )!!}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{!! URL::route('updatenewspost',$item['id'] )!!}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return xacnhanxoa('Ban co muon xoa');" href="<?php echo URL::route('newdelete',$item['id'] ); ?>"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="<?php echo URL::route('updatenewspost',$item['id'] ); ?>">Edit</a></td>
                         
-                        @endforeach    
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
                         </tbody>
                     </table>
                 </div>
@@ -88,4 +88,6 @@
 
 </html>
 
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

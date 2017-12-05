@@ -1,6 +1,14 @@
 @extends('master')
 @section('content')
-
+<div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Edit News</h1>
+                        
+                    </div>
+                </div> 
+                <!-- /.col-lg-12 -->
 <form action="" method="POST" enctype="multipart/form-data">
 	<input type="hidden" name="_token" value="{!! Csrf_Token() !!}" />
 	<div class="form-group">
@@ -12,7 +20,7 @@
 		<label>Chon The Loai</label>
 		<select class="form-control" name="theloai" id="theloai">
 			@foreach($theloai as $tl)
-				<option
+				<option value="{{$tl['id']}}"
 				@if($tl['id']==$idtheloai)
 				{!!"selected"!!}
 				@endif
@@ -56,7 +64,7 @@
 	<div class="form-group">
 		<label>Hinh anh </label>
 		<p>
-			<img src="{{url("public/admin/upload/images/tin-tuc")}}/{!!$tintuc['Hinh']!!}" width="200px" height="200px" />
+			<img src="{{url('public/images')}}/{!!$tintuc['Hinh']!!}" width="200px" height="200px" />
 		</p>
 		<input type="file" name="Hinh" id="Hinh" />
 	</div>
@@ -74,5 +82,26 @@
 	<button type="submit" class="btn btn-default">Category Add</button>
 	<button type="reset" class="btn btn-default">Reset</button>
 <form>
+</div>
+                <!-- /.row -->
+    </div>
+             <!-- /.container-fluid -->
+</div>
 
-	@stop
+	@section('scriptadd')
+        <script>
+            $(document).ready(function() {
+                $("#theloai").change(function(){
+                    var idtheloai = $(this).val();
+                    $.get("http://localhost/www/laravel-news/ajax/"+idtheloai,function(data){
+                        $("#loaitin").html(data); 
+                    });
+                });
+            });
+
+
+
+        </script>
+    @stop
+
+@stop

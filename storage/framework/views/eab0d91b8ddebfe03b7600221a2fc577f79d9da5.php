@@ -1,5 +1,4 @@
-@extends('master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -12,17 +11,17 @@
 
                     
                     <div class="col-lg-12" style="padding-bottom:120px">
-                        <!-- @if(count($errors) > 0)
+                        <!-- <?php if(count($errors) > 0): ?>
                             <div class="alert alert-danger">
                                 <ul>
-                                    @foreach($errors->all() as $err)
-                                        <li>{!! $err !!}</li>
-                                    @endforeach
+                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><?php echo $err; ?></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </div>
-                        @endif -->
+                        <?php endif; ?> -->
                         <form action="" method="POST" >
-                            <input type="hidden" name="_token" value="{!! Csrf_Token() !!}">
+                            <input type="hidden" name="_token" value="<?php echo Csrf_Token(); ?>">
                             <div class="form-group">
                                 <label>The Loai </label>
                                 <select class="form-control" name="theloai" id ="theloai">
@@ -78,7 +77,7 @@
              <!-- /.container-fluid -->
 </div>
 
-    @section('scriptadd')
+    <?php $__env->startSection('scriptadd'); ?>
         <script>
             $(document).ready(function() {
                 $("#theloai").change(function(){
@@ -92,6 +91,8 @@
 
 
         </script>
-    @stop
+    <?php $__env->stopSection(); ?>
 
-@stop               
+<?php $__env->stopSection(); ?>               
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
