@@ -1,5 +1,4 @@
-@extends('user.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -10,8 +9,19 @@
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
+                </div>
+                <div class="alert alert-danger">
+                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    
+                        <ul>
+                            <li><?php echo e($err); ?></li>
+                        </ul> 
+                       
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                        <form action="" method="post">
+                        <input type="hidden" name="_token" value="<?php echo Csrf_Token(); ?>">
                             <div class="form-group">
                                 <label>Username</label>
                                 <input class="form-control" name="txtUser" placeholder="Please Enter Username" />
@@ -26,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
+                                <input type="text" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
                             </div>
                             <div class="form-group">
                                 <label>User Level</label>
@@ -34,7 +44,7 @@
                                     <input name="rdoLevel" value="1" checked="" type="radio">Admin
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoLevel" value="2" type="radio">Member
+                                    <input name="rdoLevel" value="0" type="radio">Member
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-default">User Add</button>
@@ -48,4 +58,6 @@
         </div>
         <!-- /#page-wrapper -->
 
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

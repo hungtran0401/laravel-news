@@ -76,7 +76,9 @@ Route::post('admin/editnews/{id}',['as'=>'updatenewspost','uses'=>'NewController
 
 Route::get('admin/userlist',['as'=>'dsuser','uses'=>'UserController@getList']);
 
-Route::get('admin/themuser',['as'=>'themuser','uses'=>'UserController@themUser']);
+Route::get('admin/themuser',['as'=>'themuser','uses'=>'UserController@getAdd']);
+
+Route::post('admin/themuser',['as'=>'postuser','uses'=>'UserController@postAdd']);
  
 
 //ajax

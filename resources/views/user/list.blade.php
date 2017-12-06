@@ -1,4 +1,4 @@
-@extends('user.master')
+@extends('master')
 @section('content')
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -11,7 +11,7 @@
                     
                     </div>
                     <!-- /.col-lg-12 -->
-                    <button><a href="themuser">Them user</a></button>
+                    
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">

@@ -55,10 +55,10 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List User</a>
+                                    <a href="{{url('admin/userlist')}}">List User</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add User</a>
+                                    <a href="{!! URL::route('themuser') !!}">Add User</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
