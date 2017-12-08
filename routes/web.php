@@ -72,6 +72,8 @@ Route::post('admin/editnews/{id}',['as'=>'updatenewspost','uses'=>'NewController
 
 
 
+
+
 //user
 
 Route::get('admin/userlist',['as'=>'dsuser','uses'=>'UserController@getList']);
@@ -84,3 +86,9 @@ Route::post('admin/themuser',['as'=>'postuser','uses'=>'UserController@postAdd']
 //ajax
 
 Route::get('ajax/{idtheloai}','NewController@ajax');
+
+//dang nhap
+
+Route::get('login',['as'=>'dangnhap','uses'=>'LoginController@getLogin']);
+
+Route::post('login',['as'=>'postdangnhap','uses'=>'LoginController@postLogin']);

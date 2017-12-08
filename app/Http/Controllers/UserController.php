@@ -27,7 +27,7 @@ class UserController extends Controller
         $user->name = $request->txtUser;
         $user->email = $request->txtEmail;
         $user->quyen = $request->rdoLevel;
-        $user->password = $request->txtPass;
+        $user->password = bcrypt($request->txtPass);
         $user->save();
     	return redirect()->route('dsuser')->with(['thongbao'=>'Them thanh cong','canhbao'=>'success']);
     }

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Bach Khoa">
+    <meta name="description" content="">
     <meta name="author" content="">
-    <title>Admin - Bach Khoa</title>
+
+    <title>Laravel Khoa Pham</title>
+    
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo e(url('public/admin/bower_components/bootstrap/dist/css/bootstrap.min.css')); ?>" rel="stylesheet">
@@ -26,41 +30,48 @@
     <!-- DataTables Responsive CSS -->
     <link href="<?php echo e(url('public/admin/bower_components/datatables-responsive/css/dataTables.responsive.css')); ?>" rel="stylesheet">
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
-
 <body>
 
+    <!-- Navigation -->
+    
 
 
-    <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <?php echo $__env->make('layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-            <?php echo $__env->make('layouts.nav-bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        
-            <?php echo $__env->make('layouts.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             
-        </nav>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+    	<!-- slider -->
+    	
+        <!-- end slide -->
+
+        <div class="space20"></div>
+
+
         
+    <?php echo $__env->yieldContent('menu'); ?>
             
 
-        <?php echo $__env->yieldContent('content'); ?>
-        <!-- Page Content -->
-        
-                    
+    <?php echo $__env->yieldContent('content'); ?>
+    <!-- end Page Content -->
 
-                    
-               
-           
-        
-        
-
-    </div>
-    <!-- /#wrapper -->
-
+    <!-- Footer -->
+    <hr>
+    
+    <!-- end Footer -->
     <!-- jQuery -->
     <script src="<?php echo e(url('public/admin/bower_components/jquery/dist/jquery.min.js')); ?>"></script>
 
@@ -76,25 +87,6 @@
     <!-- DataTables JavaScript -->
     <script src="<?php echo e(url('public/admin/bower_components/DataTables/media/js/jquery.dataTables.min.js')); ?>"></script>
     <script src="<?php echo e(url('public/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')); ?>"></script>
-
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-                responsive: true
-        });
-    });
-    </script>
-
-    <script src="<?php echo e(url('public/admin/js/ssss.js')); ?>"></script>
-
-    <script src="<?php echo e(url('public/admin/ckeditor/ckeditor.js')); ?>"></script>
-
-    <?php echo $__env->yieldContent('scriptadd'); ?>
-
-
-
-    
 
 </body>
 
